@@ -55,28 +55,32 @@ export function DishCarousel({
       {/* Navigation Arrows - Only show if more than 1 image */}
       {images.length > 1 && (
         <>
-          {/* Left Arrow */}
+          {/* Left Arrow - Enlarged hit area */}
           <button
             type="button"
             onClick={goToPrevious}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/80 backdrop-blur-lg shadow-md transition-all duration-200 motion-safe:hover:-translate-y-1 hover:shadow-xl active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="group absolute inset-y-0 left-0 z-20 flex w-[20%] max-w-[160px] items-center justify-start bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             aria-label="Previous image"
           >
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
-            </svg>
+            <span className="ml-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/80 backdrop-blur-lg shadow-md transition-all duration-200 motion-safe:group-hover:-translate-y-1 group-hover:shadow-xl group-active:scale-[0.97]">
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+              </svg>
+            </span>
           </button>
 
-          {/* Right Arrow */}
+          {/* Right Arrow - Enlarged hit area */}
           <button
             type="button"
             onClick={goToNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/80 backdrop-blur-lg shadow-md transition-all duration-200 motion-safe:hover:-translate-y-1 hover:shadow-xl active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="group absolute inset-y-0 right-0 z-20 flex w-[20%] max-w-[160px] items-center justify-end bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             aria-label="Next image"
           >
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-            </svg>
+            <span className="mr-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/80 backdrop-blur-lg shadow-md transition-all duration-200 motion-safe:group-hover:-translate-y-1 group-hover:shadow-xl group-active:scale-[0.97]">
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
           </button>
 
           {/* Dots Indicator */}

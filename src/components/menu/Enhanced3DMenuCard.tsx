@@ -3,6 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { StandardCard } from "@/components/ui/nc-card";
+import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/ui/icons";
+import Link from "next/link";
+import { qoplaOrderUrl } from "@/config/site";
 
 interface MenuItemCardProps {
   name: string;
@@ -171,18 +175,33 @@ export default function Enhanced3DMenuCard({
                 </div>
               )}
 
-              {/* Quick Add Button - Slides up */}
-              <motion.button
-                className="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+              {/* Quick Add Button - Full-width clickable area */}
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
-                animate={{ 
+                animate={{
                   y: isHovered ? 0 : 20,
-                  opacity: isHovered ? 1 : 0
+                  opacity: isHovered ? 1 : 0,
                 }}
                 transition={{ duration: 0.3 }}
+                className="w-full"
+                style={{ pointerEvents: isHovered ? 'auto' : 'none' }}
               >
-                Quick Add to Order
-              </motion.button>
+                <Button
+                  asChild
+                  className="w-full rounded-lg bg-primary hover:bg-primary/90 text-white"
+                  size="lg"
+                >
+                  <Link 
+                    href={qoplaOrderUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex w-full h-full items-center justify-center gap-2 px-6 py-3"
+                  >
+                    <Icons.cart className="h-5 w-5 flex-shrink-0" />
+                    <span className="font-semibold">Quick Add to Order</span>
+                  </Link>
+                </Button>
+              </motion.div>
             </div>
           </div>
         </StandardCard>
